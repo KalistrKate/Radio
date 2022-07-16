@@ -15,18 +15,24 @@ public class Radio {
         }
         currentRadioStation = newCurrentRadioStation;
     }
-    public void nextRadioStation() {
+    public void nextRadioStationBeforeMax() {
         if (currentRadioStation < 9) {
             currentRadioStation = currentRadioStation + 1;
         }
+        return;
+    }
+    public void nextRadioStationAfterMax() {
         if (currentRadioStation == 9) {
             currentRadioStation = 0;
         }
     }
-    public void prevRadioStation() {
+
+    public void prevRadioStationBeforeMin() {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         }
+    }
+    public void prevRadioStationAfterMin() {
         if (currentRadioStation == 0) {
             currentRadioStation = 9;
         }
@@ -43,18 +49,22 @@ public class Radio {
         }
         currentVolume = newCurrentVolume;
     }
-    public void nextVolume() {
+    public void nextVolumeBeforeMax() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
+    }
+    public void nextVolumeAfterMax() {
         if (currentVolume == 10) {
             currentVolume = 0;
         }
     }
-    public void prevVolume() {
+    public void prevVolumeBeforeMin() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
+    }
+    public void prevVolumeAfterMin() {
         if (currentVolume == 0) {
             currentVolume = 10;
         }
