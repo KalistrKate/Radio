@@ -1,11 +1,15 @@
 package ru.netology.Radio;
 
 public class Radio {
-    private int currentRadioStation;
+
+    private int currentRadioStation = 0;
     private int currentVolume;
+
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
+
+
     public void setCurrentRadioStation(int newCurrentRadioStation) {
         if (newCurrentRadioStation < 0) {
             return;
@@ -15,28 +19,24 @@ public class Radio {
         }
         currentRadioStation = newCurrentRadioStation;
     }
-    public void nextRadioStationBeforeMax() {
+    public void nextRadioStation() {
         if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
+            currentRadioStation ++;
         }
-        return;
-    }
-    public void nextRadioStationAfterMax() {
-        if (currentRadioStation == 9) {
+        else {
             currentRadioStation = 0;
         }
     }
 
-    public void prevRadioStationBeforeMin() {
+    public void prevRadioStation() {
         if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
+            currentRadioStation --;
         }
-    }
-    public void prevRadioStationAfterMin() {
-        if (currentRadioStation == 0) {
+        else {
             currentRadioStation = 9;
         }
     }
+
     public int getCurrentVolume(){
         return currentVolume;
     }
@@ -49,23 +49,19 @@ public class Radio {
         }
         currentVolume = newCurrentVolume;
     }
-    public void nextVolumeBeforeMax() {
+    public void increaseVolume() {
         if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
+            currentVolume ++;
         }
-    }
-    public void nextVolumeAfterMax() {
-        if (currentVolume == 10) {
+        else {
             currentVolume = 0;
         }
     }
-    public void prevVolumeBeforeMin() {
+    public void prevVolume() {
         if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+            currentVolume --;
         }
-    }
-    public void prevVolumeAfterMin() {
-        if (currentVolume == 0) {
+        else {
             currentVolume = 10;
         }
     }
