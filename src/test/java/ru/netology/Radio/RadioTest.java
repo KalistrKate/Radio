@@ -166,4 +166,70 @@ public class RadioTest {
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void Test() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+
+
+        int expected = 15;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    Radio radio = new Radio(30);
+
+    @Test
+    public void TestRadioNotShouldNextStation() {
+
+        radio.setCurrentRadioStation(29);
+        radio.nextRadioStation();
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void TestRadioShouldNextStation() {
+
+        radio.setCurrentRadioStation(27);
+        radio.nextRadioStation();
+        int expected = 28;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void TestRadioNotShouldPrevStation() {
+
+        radio.setCurrentRadioStation(0);
+        radio.prevRadioStation();
+        int expected = 29;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void TestRadioShouldPrevStation() {
+
+        radio.setCurrentRadioStation(28);
+        radio.prevRadioStation();
+        int expected = 27;
+        int actual = radio.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void increaseVolumeTest(){
+        radio.setCurrentVolume(100);
+        int expected = 100;
+        radio.increaseVolume();
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void decreaseVolumeMinTest() {
+        radio.setCurrentVolume(0);
+        int expected = 0;
+        radio.prevVolume();
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
 }
